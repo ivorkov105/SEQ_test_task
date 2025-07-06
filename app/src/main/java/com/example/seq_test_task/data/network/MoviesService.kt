@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface MoviesService {
     @GET("films.json")
-    suspend fun getFilms(): Response<MoviesResponse>
+    suspend fun getMovies(): Response<MoviesResponse>
 }

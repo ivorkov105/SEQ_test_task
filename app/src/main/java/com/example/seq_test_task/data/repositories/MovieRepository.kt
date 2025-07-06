@@ -5,11 +5,11 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
 
-    fun getFilmsStream(): Flow<List<Movie>>
+    fun getMoviesStream(): Flow<List<Movie>>
 
-    fun getFilmById(filmId: Int): Flow<Movie?>
+    fun getMovieById(filmId: Long): Flow<Movie?>
 
     fun getGenresStream(): Flow<List<String>>
 
-    suspend fun refreshFilms(): Result<Unit>
+    suspend fun refreshMovies(): Result<Unit>
 }

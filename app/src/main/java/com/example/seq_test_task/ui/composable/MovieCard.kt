@@ -30,19 +30,7 @@ fun MovieCard(
             .clickable { onMovieClick(movie.id) }
     ) {
         if (movie.imageUrl != null) {
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(movie.imageUrl)
-                    .crossfade(true)
-                    .placeholder(R.drawable.movie_item_placeholder)
-                    .error(R.drawable.movie_item_placeholder)
-                    .build(),
-                contentDescription = movie.localizedName,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(0.7f),
-                contentScale = ContentScale.Crop
-            )
+            MoviePic(movie)
         } else MovieItemPlaceholder(modifier)
         Text(
             text = movie.localizedName,

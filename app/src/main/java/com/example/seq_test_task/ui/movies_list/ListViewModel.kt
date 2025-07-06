@@ -20,7 +20,7 @@ class ListViewModel(
 
     init {
         viewModelScope.launch {
-            repository.getFilmsStream()
+            repository.getMoviesStream()
                 .combine(selectedGenre) { moviesFromDb, genre ->
                     MoviesListUiState(
                         allGenres = moviesFromDb.flatMap { it.genres }.distinct().sorted(),
@@ -57,7 +57,7 @@ class ListViewModel(
     fun loadFilms() {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, error = null) }
-            repository.refreshFilms()
+            repository.refreshMovies()
                 .onFailure { error ->
                     _uiState.update { it.copy(error = error.localizedMessage ?: "Ошибка сети") }
                 }

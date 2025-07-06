@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.seq_test_task.data.db.MovieDao
+import com.example.seq_test_task.data.daos.MovieDao
 import com.example.seq_test_task.data.models.Movie
 import com.example.seq_test_task.utils.Converters
 

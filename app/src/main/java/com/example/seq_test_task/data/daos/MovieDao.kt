@@ -1,4 +1,4 @@
-package com.example.seq_test_task.data.db
+package com.example.seq_test_task.data.daos
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -13,15 +13,15 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(movies: List<Movie>)
 
-    @Query("SELECT * FROM films ORDER BY localizedName ASC")
-    fun getAllFilms(): Flow<List<Movie>>
+    @Query("SELECT * FROM movies ORDER BY localizedName ASC")
+    fun getAllMovies(): Flow<List<Movie>>
 
-    @Query("SELECT * FROM films WHERE genres LIKE '%' || :genre || '%' ORDER BY localizedName ASC")
-    fun getFilmsByGenre(genre: String): Flow<List<Movie>>
+    @Query("SELECT * FROM movies WHERE genres LIKE '%' || :genre || '%' ORDER BY localizedName ASC")
+    fun getMoviesByGenre(genre: String): Flow<List<Movie>>
 
-    @Query("SELECT * FROM films WHERE id = :filmId")
-    fun getFilmById(filmId: Int): Flow<Movie?>
+    @Query("SELECT * FROM movies WHERE id = :movieId")
+    fun getMovieById(movieId: Long): Flow<Movie?>
 
-    @Query("DELETE FROM films")
+    @Query("DELETE FROM movies")
     suspend fun clearAll()
 }

@@ -2,10 +2,10 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ff46b33367aebef68a3f7192d291d7bb",
+    "identityHash": "5dcf63724417a1c0ab8cf06f11f5f96d",
     "entities": [
       {
-        "tableName": "films",
+        "tableName": "movies",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `localizedName` TEXT NOT NULL, `name` TEXT NOT NULL, `year` INTEGER NOT NULL, `rating` REAL, `imageUrl` TEXT, `description` TEXT, `genres` TEXT NOT NULL)",
         "fields": [
           {
@@ -64,7 +64,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ff46b33367aebef68a3f7192d291d7bb')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5dcf63724417a1c0ab8cf06f11f5f96d')"
     ]
   }
 }
