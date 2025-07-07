@@ -1,0 +1,30 @@
+{
+  "films": [
+    {
+      "id": 101,
+      "localized_name": "Тестовый фильм из сети",
+      "name": "Network Test Movie",
+      "year": 2025,
+      "rating": 9.9,
+      "image_url": "https://example.com/poster.jpg",
+      "description": "Это описание тестового фильма, загруженное из фейкового JSON-ответа во время интеграционного теста.",
+      "genres": [
+        "тест",
+        "сеть"
+      ]
+    },
+    {
+      "id": 102,
+      "localized_name": "Другой тестовый фильм",
+      "name": "Another Test Movie",
+      "year": 2024,
+      "rating": 8.5,
+      "image_url": "https://example.com/poster2.jpg",
+      "description": "Второе описание для проверки сохранения нескольких объектов.",
+      "genres": [
+        "тест",
+        "драма"
+      ]
+    }
+  ]
+}
