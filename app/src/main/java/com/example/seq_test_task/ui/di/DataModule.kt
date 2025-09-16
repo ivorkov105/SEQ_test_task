@@ -1,9 +1,9 @@
-package com.example.seq_test_task.di
+package com.example.seq_test_task.ui.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.projectexcursions.databases.AppDatabase
-import com.example.seq_test_task.data.daos.MovieDao
+import com.example.seq_test_task.data.local.database.AppDatabase
+import com.example.seq_test_task.data.local.daos.MovieDao
 import org.koin.core.annotation.Module
 import org.koin.core.annotation.Single
 

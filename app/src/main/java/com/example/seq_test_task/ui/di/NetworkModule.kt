@@ -1,12 +1,11 @@
-package com.example.seq_test_task.di
+package com.example.seq_test_task.ui.di
 
 import com.example.seq_test_task.BuildConfig
-import com.example.seq_test_task.data.network.MoviesService
+import com.example.seq_test_task.data.remote.api.MoviesService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.core.annotation.Factory
 import org.koin.core.annotation.Module
 import org.koin.core.annotation.Single
 import retrofit2.Retrofit

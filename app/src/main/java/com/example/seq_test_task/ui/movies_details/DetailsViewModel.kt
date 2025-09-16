@@ -1,8 +1,8 @@
 package com.example.seq_test_task.ui.movies_details
 
 import androidx.lifecycle.SavedStateHandle
-import com.example.seq_test_task.data.models.Movie
-import com.example.seq_test_task.data.repositories.MovieRepository
+import com.example.seq_test_task.data.local.model.MovieEntity
+import com.example.seq_test_task.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
@@ -18,13 +18,13 @@ class DetailsViewModel(
 ): ViewModel() {
     private val movieId: Long = checkNotNull(savedStateHandle["movieId"])
 
-    val movieState: StateFlow<Movie> =
+    val movieEntityState: StateFlow<MovieEntity> =
         repository.getMovieById(movieId)
             .filterNotNull()
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(5000L),
-                initialValue = Movie(
+                initialValue = MovieEntity(
                     id = -1L,
                     localizedName = "",
                     name = "",

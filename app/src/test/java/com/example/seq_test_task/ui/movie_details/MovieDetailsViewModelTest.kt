@@ -2,8 +2,8 @@ package com.example.seq_test_task.ui.movie_details
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
-import com.example.seq_test_task.data.models.Movie
-import com.example.seq_test_task.data.repositories.MovieRepository
+import com.example.seq_test_task.data.local.model.MovieEntity
+import com.example.seq_test_task.domain.repository.MovieRepository
 import com.example.seq_test_task.ui.movies_details.DetailsViewModel // Проверь правильность импорта
 import com.example.seq_test_task.util.MainDispatcherRule
 import com.google.common.truth.Truth.assertThat
@@ -23,7 +23,7 @@ class MovieDetailsViewModelTest {
     private lateinit var viewModel: DetailsViewModel
 
     private val testMovieId = 123L
-    private val testMovie = Movie(
+    private val testMovieEntity = MovieEntity(
         id = testMovieId,
         localizedName = "Тестовый фильм",
         name = "Test Movie",
@@ -36,7 +36,7 @@ class MovieDetailsViewModelTest {
 
     @Test
     fun `init - state correctly emits movie from repository`() = runTest {
-        every { mockRepository.getMovieById(testMovieId) } returns flowOf(testMovie)
+        every { mockRepository.getMovieById(testMovieId) } returns flowOf(testMovieEntity)
 
         val savedStateHandle = SavedStateHandle().apply {
             set("movieId", testMovieId)
@@ -44,7 +44,7 @@ class MovieDetailsViewModelTest {
 
         viewModel = DetailsViewModel(mockRepository, savedStateHandle)
 
-        viewModel.movieState.test {
+        viewModel.movieEntityState.test {
             val movie = awaitItem()
 
             assertThat(movie.id).isEqualTo(testMovieId)
@@ -64,7 +64,7 @@ class MovieDetailsViewModelTest {
 
         viewModel = DetailsViewModel(mockRepository, savedStateHandle)
 
-        viewModel.movieState.test {
+        viewModel.movieEntityState.test {
             val movie = awaitItem()
             assertThat(movie.id).isEqualTo(-1L)
             expectNoEvents()

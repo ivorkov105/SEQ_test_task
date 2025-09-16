@@ -11,7 +11,7 @@ import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.printToLog
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.seq_test_task.data.models.Movie
+import com.example.seq_test_task.data.local.model.MovieEntity
 import com.example.seq_test_task.di.testModule
 import com.example.seq_test_task.ui.main.MainActivity
 import com.example.seq_test_task.util.FakeMovieRepository
@@ -38,8 +38,8 @@ class AppNavigationTest: KoinTest {
         val fakeRepository: FakeMovieRepository = get()
 
         val testMovies = listOf(
-            Movie(1, "Тест Фильм 1", "Test Movie 1", 2025, 8.0, "", "Описание первого фильма", listOf("тест")),
-            Movie(2, "Тест Фильм 2", "Test Movie 2", 2026, 9.0, "", "Описание второго фильма", listOf("другой"))
+            MovieEntity(1, "Тест Фильм 1", "Test Movie 1", 2025, 8.0, "", "Описание первого фильма", listOf("тест")),
+            MovieEntity(2, "Тест Фильм 2", "Test Movie 2", 2026, 9.0, "", "Описание второго фильма", listOf("другой"))
         )
         fakeRepository.setMovies(testMovies)
 

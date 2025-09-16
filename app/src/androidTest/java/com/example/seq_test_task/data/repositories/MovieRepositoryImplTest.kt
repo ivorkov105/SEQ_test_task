@@ -4,9 +4,10 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.projectexcursions.databases.AppDatabase
-import com.example.seq_test_task.data.daos.MovieDao
-import com.example.seq_test_task.data.network.MoviesService
+import com.example.seq_test_task.data.local.database.AppDatabase
+import com.example.seq_test_task.data.local.daos.MovieDao
+import com.example.seq_test_task.data.remote.api.MoviesService
+import com.example.seq_test_task.domain.repository.MovieRepository
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest

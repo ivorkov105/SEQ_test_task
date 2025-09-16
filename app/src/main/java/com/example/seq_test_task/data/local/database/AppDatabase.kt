@@ -1,16 +1,11 @@
-package com.example.projectexcursions.databases
+package com.example.seq_test_task.data.local.database
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.example.seq_test_task.data.daos.MovieDao
-import com.example.seq_test_task.data.models.Movie
-import com.example.seq_test_task.utils.Converters
+import com.example.seq_test_task.data.local.daos.MovieDao
+import com.example.seq_test_task.data.local.model.MovieEntity
+import com.example.seq_test_task.data.local.utils.Converters
 
-
-@Database(entities = [Movie::class], version = 1)
+@Database(entities = [MovieEntity::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
 

@@ -1,6 +1,6 @@
-package com.example.seq_test_task.data.repositories
+package com.example.seq_test_task.domain.repository
 
-import com.example.seq_test_task.data.models.Movie
+import com.example.seq_test_task.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {

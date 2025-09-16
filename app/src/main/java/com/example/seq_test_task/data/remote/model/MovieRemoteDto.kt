@@ -1,14 +1,10 @@
-package com.example.seq_test_task.data.models
+package com.example.seq_test_task.data.remote.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "movies")
-data class Movie(
-    @PrimaryKey(autoGenerate = true)
+data class MovieRemoteDto(
     @SerializedName("id")
-    val id: Long = 0,
+    val id: Long,
 
     @SerializedName("localized_name")
     val localizedName: String,
@@ -20,14 +16,14 @@ data class Movie(
     val year: Int,
 
     @SerializedName("rating")
-    val rating: Double? = 0.0,
+    val rating: Double?,
 
     @SerializedName("image_url")
     val imageUrl: String?,
 
     @SerializedName("description")
-    val description: String? = "Описание кто то съел",
+    val description: String?,
 
     @SerializedName("genres")
-    val genres: List<String> = emptyList()
+    val genres: List<String>
 )

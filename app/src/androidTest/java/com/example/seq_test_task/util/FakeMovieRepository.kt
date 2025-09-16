@@ -1,24 +1,24 @@
 package com.example.seq_test_task.util
 
-import com.example.seq_test_task.data.models.Movie
-import com.example.seq_test_task.data.repositories.MovieRepository
+import com.example.seq_test_task.data.local.model.MovieEntity
+import com.example.seq_test_task.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 
 class FakeMovieRepository: MovieRepository {
 
-    private val moviesFlow = MutableStateFlow<List<Movie>>(emptyList())
+    private val moviesFlow = MutableStateFlow<List<MovieEntity>>(emptyList())
 
-    fun setMovies(movies: List<Movie>) {
-        moviesFlow.value = movies
+    fun setMovies(movieEntities: List<MovieEntity>) {
+        moviesFlow.value = movieEntities
     }
 
-    override fun getMoviesStream(): Flow<List<Movie>> {
+    override fun getMoviesStream(): Flow<List<MovieEntity>> {
         return moviesFlow
     }
 
-    override fun getMovieById(movieId: Long): Flow<Movie?> {
+    override fun getMovieById(movieId: Long): Flow<MovieEntity?> {
         return moviesFlow.map { movies ->
             movies.find { it.id == movieId }
         }

@@ -32,7 +32,7 @@ class MoviesDetailsFragment: Fragment() {
     }
 
     private fun subscribe() {
-        viewModel.movieState.onEach { movie ->
+        viewModel.movieEntityState.onEach { movie ->
             if (movie.id == -1L) return@onEach
 
             binding.movieTitle.text = movie.localizedName
@@ -42,7 +42,7 @@ class MoviesDetailsFragment: Fragment() {
 
             binding.moviePosterComposeView.setContent {
                 SeqTestTaskTheme {
-                    MoviePic(movie = movie)
+                    MoviePic(movieEntity = movie)
                 }
             }
         }

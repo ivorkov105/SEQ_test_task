@@ -1,9 +1,9 @@
 package com.example.seq_test_task
 
 import android.app.Application
-import com.example.seq_test_task.di.AppModule
-import com.example.seq_test_task.di.DataModule
-import com.example.seq_test_task.di.NetworkModule
+import com.example.seq_test_task.ui.di.AppModule
+import com.example.seq_test_task.ui.di.DataModule
+import com.example.seq_test_task.ui.di.NetworkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

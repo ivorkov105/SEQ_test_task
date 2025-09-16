@@ -1,4 +1,4 @@
-package com.example.seq_test_task.di
+package com.example.seq_test_task.ui.di
 
 import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Module

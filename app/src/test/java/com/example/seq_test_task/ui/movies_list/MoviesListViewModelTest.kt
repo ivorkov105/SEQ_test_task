@@ -1,9 +1,8 @@
 package com.example.seq_test_task.ui.movies_list
 
 import app.cash.turbine.test
-import com.example.seq_test_task.data.models.Movie
-import com.example.seq_test_task.data.models.MoviesListUiState
-import com.example.seq_test_task.data.repositories.MovieRepository
+import com.example.seq_test_task.data.local.model.MovieEntity
+import com.example.seq_test_task.domain.repository.MovieRepository
 import com.example.seq_test_task.util.MainDispatcherRule
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
@@ -28,9 +27,9 @@ class MoviesListViewModelTest {
     private lateinit var viewModel: ListViewModel
 
     private val testFilms = listOf(
-        Movie(1, "Фильм 1", "Film 1", 2020, 8.0, "", "Desc 1", listOf("драма", "боевик")),
-        Movie(2, "Фильм 2", "Film 2", 2021, 8.5, "", "Desc 2", listOf("комедия")),
-        Movie(3, "Фильм 3", "Film 3", 2022, 9.0, "", "Desc 3", listOf("драма"))
+        MovieEntity(1, "Фильм 1", "Film 1", 2020, 8.0, "", "Desc 1", listOf("драма", "боевик")),
+        MovieEntity(2, "Фильм 2", "Film 2", 2021, 8.5, "", "Desc 2", listOf("комедия")),
+        MovieEntity(3, "Фильм 3", "Film 3", 2022, 9.0, "", "Desc 3", listOf("драма"))
     )
 
     private val allGenresSorted = listOf("боевик", "драма", "комедия")

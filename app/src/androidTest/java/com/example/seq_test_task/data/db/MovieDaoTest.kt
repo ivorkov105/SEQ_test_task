@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.projectexcursions.databases.AppDatabase
-import com.example.seq_test_task.data.daos.MovieDao
-import com.example.seq_test_task.data.models.Movie
+import com.example.seq_test_task.data.local.database.AppDatabase
+import com.example.seq_test_task.data.local.daos.MovieDao
+import com.example.seq_test_task.data.local.model.MovieEntity
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
@@ -38,8 +38,8 @@ class MovieDaoTest {
     @Test
     fun insertAllAndGetAllMovies_returnsCorrectMovies() = runTest {
         val movies = listOf(
-            Movie(1, "Фильм А", "Movie A", 2020, 8.0, "", "", listOf("драма")),
-            Movie(2, "Фильм Б", "Movie B", 2021, 9.0, "", "", listOf("комедия"))
+            MovieEntity(1, "Фильм А", "Movie A", 2020, 8.0, "", "", listOf("драма")),
+            MovieEntity(2, "Фильм Б", "Movie B", 2021, 9.0, "", "", listOf("комедия"))
         )
 
         movieDao.insertAll(movies)
@@ -51,8 +51,8 @@ class MovieDaoTest {
     @Test
     fun getFilmById_returnsCorrectMovie() = runTest {
         val movies = listOf(
-            Movie(1, "Фильм А", "Movie A", 2020, 8.0, "", "", listOf("драма")),
-            Movie(2, "Фильм Б", "Movie B", 2021, 9.0, "", "", listOf("комедия"))
+            MovieEntity(1, "Фильм А", "Movie A", 2020, 8.0, "", "", listOf("драма")),
+            MovieEntity(2, "Фильм Б", "Movie B", 2021, 9.0, "", "", listOf("комедия"))
         )
         movieDao.insertAll(movies)
 
@@ -63,7 +63,7 @@ class MovieDaoTest {
 
     @Test
     fun clearAll_emptiesTheTable() = runTest {
-        val movies = listOf(Movie(1, "Фильм А", "Movie A", 2020, 8.0, "", "", listOf("драма")))
+        val movies = listOf(MovieEntity(1, "Фильм А", "Movie A", 2020, 8.0, "", "", listOf("драма")))
         movieDao.insertAll(movies)
 
         var allMovies = movieDao.getAllMovies().first()

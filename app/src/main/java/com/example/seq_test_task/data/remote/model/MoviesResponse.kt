@@ -1,8 +1,8 @@
-package com.example.seq_test_task.data.models
+package com.example.seq_test_task.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
 data class MoviesResponse(
     @SerializedName("films")
-    val movies: List<Movie>
+    val moviesDto: List<MovieRemoteDto>
 )

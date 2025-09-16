@@ -1,4 +1,4 @@
-package com.example.seq_test_task.utils
+package com.example.seq_test_task.data.local.utils
 
 import androidx.room.TypeConverter
 

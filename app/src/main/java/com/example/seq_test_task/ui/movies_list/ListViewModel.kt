@@ -2,8 +2,8 @@ package com.example.seq_test_task.ui.movies_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.seq_test_task.data.models.MoviesListUiState
-import com.example.seq_test_task.data.repositories.MovieRepository
+import com.example.seq_test_task.ui.movies_list.state.MoviesListUiState
+import com.example.seq_test_task.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
@@ -25,7 +25,7 @@ class ListViewModel(
                     MoviesListUiState(
                         allGenres = moviesFromDb.flatMap { it.genres }.distinct().sorted(),
                         selectedGenre = genre,
-                        movies = if (genre == null) {
+                        movieEntities = if (genre == null) {
                             moviesFromDb
                         } else {
                             moviesFromDb.filter { it.genres.contains(genre) }
