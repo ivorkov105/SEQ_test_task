@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/moviesListFragment"
-        android:name="com.example.seq_test_task.ui.movies_list.MoviesListFragment"
+        android:name="com.example.seq_test_task.presentation.movies_list.MoviesListFragment"
         android:label="Фильмы">
         <action
             android:id="@+id/action_list_to_details"
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/moviesDetailsFragment"
-        android:name="com.example.seq_test_task.ui.movies_details.MoviesDetailsFragment"
+        android:name="com.example.seq_test_task.presentation.movies_details.MoviesDetailsFragment"
         android:label="Детали фильма">
         <argument
             android:name="movieId"

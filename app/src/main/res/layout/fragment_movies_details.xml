@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:scrollbars="none"
-    tools:context=".ui.movies_details.MoviesDetailsFragment">
+    tools:context=".presentation.movies_details.MoviesDetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
